@@ -47,11 +47,11 @@ def remove_car(car):
         print str(index+1) + ") " + cars.get_full_model_name()
 
     select_id = raw_input("Katero vozilo bi radi odstranili iz voznega parka (Vpisite stevilko vozila): ")
-    selected_car = car[int(select_id)]
+    selected_cars = car[int(select_id) - 1]
     answer = raw_input("Ali ste prepricani da zelite odstraniti avtomobil? (da/ne) ")
 
     if answer == "da":
-        car.remove(selected_car)
+        car.remove(selected_cars)
         print "Vozilo je bilo vspesno odstranjeno."
     else:
         print "Vozilo ni bilo vspesno odstranjeno."
@@ -66,7 +66,7 @@ def set_kilometers(car):
         print str(index+1) + ")" + cars.get_full_model_name()
 
     selected_id = raw_input("Kateremu vozilu bi radi spremenili prevozene kilometre (Vpisite stevilko vozila): ")
-    selected_car = car[int(selected_id)]
+    selected_car = car[int(selected_id) - 1]
 
     new_kilometers = raw_input("Prosim vpisite nove prevozene kilometre za vozilo %s: " % selected_car.get_full_model_name())
     selected_car.kilometers = new_kilometers
@@ -79,7 +79,7 @@ def set_last_service(car):
         print str(index+1) + ")" + cars.get_full_model_name()
 
     select_id = raw_input("Kateremu vozilu bi radi spremenili datum zadnjega servisa (Vpisite stevilko vozila): ")
-    selected_cars = car[int(select_id)]
+    selected_cars = car[int(select_id) - 1]
 
     new_servis = raw_input("Prosim vpisite datum kdaj je bil narejen zadnji servis na (DD/MM/LLLL) %s: " % selected_cars.get_full_model_name())
     selected_cars.last_servis = new_servis
